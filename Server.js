@@ -31,19 +31,23 @@ function requestHandler(request, response){
     } else if ( path === "/shuffle"){
         const result = _.shuffle(lessons);
         response.end(JSON.stringify(result));
-    } else if ( path === "/result"){
+    } else if (path === "/result") {
         const type = url.searchParams.get("type");
-        console.log("type", type);
-        response.end(JSON.stringify({ message: `You requested type: ${type}` }));
+        if (type === "findBy") {
+         const queryObj = Object.fromEntries(url.searchParams.entries());
+         delete queryObj.type;
+        if ("price" in queryObj) {
+        queryObj.price = Number(queryObj.price);
+        }
+        const result = _.find(lessons, queryObj);
+        return response.end(JSON.stringify(result || {}));
+    }
+        return response.end(JSON.stringify({ message: `You requested type: ${type}` }));
     } else {
         response.end(JSON.stringify({ message: "Go to /lessons for lessons infomationor go to /findLondon to see lessons in London."
         }));
     }
 }
-
-_.find(lessons, {location: 'London'});
-
-const result = _.find(lessons, {location: 'London'});
 //create the server
 var server= http.createServer(requestHandler);
 
