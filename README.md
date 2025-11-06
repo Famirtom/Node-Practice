@@ -1,8 +1,8 @@
-## 📘 Node-Practice
+##  Node-Practice
 
 A small Node.js practice project demonstrating how to create an HTTP server and use the Lodash library for data manipulation.
 
-## 🚀 Features
+##  Features
 
 Basic HTTP server built with Node’s core http module
 
@@ -20,7 +20,7 @@ _.shuffle() → randomize the lesson order
 
 Query parameters to dynamically choose the operation (e.g. /result?type=findBy&location=London)
 
-## 🧠 Example Endpoints
+##  Example Endpoints
 
 Route	Description
 
@@ -38,7 +38,7 @@ Route	Description
 
 /result?type=findBy&location=London	Dynamic search example
 
-## ⚙️ Installation
+##  Installation
 git clone https://github.com/Famirtom/Node-Practice.git
 cd Node-Practice
 npm install
@@ -49,10 +49,10 @@ Server runs by default on:
 
 http://localhost:3000
 
-## 🧩 Dependencies
+##  Dependencies
 
 lodash
 
-✍️ Author
+ Author
 
 Created by Famirtom as a Node.js learning exercise.
